@@ -7,8 +7,8 @@
     <title>Snake</title>
   </head>
   <body>
+    <p id="demo"></p>
     <canvas id="canvas" width="400" height="400"></canvas>
-
     <script>
       var canvas, ctx;
       window.onload = function() {
@@ -16,14 +16,15 @@
         ctx = canvas.getContext("2d");
         document.addEventListener("keydown", keyDownEvent);
         // render X times per second
-        var x = 8;
+        var x = 8
+        // Increase speed of snake - make it increase based on score as well
         setInterval(draw, 1000 / x);
       };
       // game world
       var gridSize = (tileSize = 20); // 20 x 20 = 400
       var nextX = (nextY = 0);
       // snake
-      var defaultTailSize = 3;
+      var defaultTailSize = 1;
       var tailSize = defaultTailSize;
       var snakeTrail = [];
       var snakeX = (snakeY = 10);
@@ -52,7 +53,7 @@
           tailSize++;
           appleX = Math.floor(Math.random() * gridSize);
           appleY = Math.floor(Math.random() * gridSize);
-        }
+        } 
         //paint background
         ctx.fillStyle = "black";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -77,6 +78,9 @@
         snakeTrail.push({ x: snakeX, y: snakeY });
         while (snakeTrail.length > tailSize) {
           snakeTrail.shift();
+        var score = tailSize;
+        document.getElementById("demo").innerHTML = score;
+        window.score = score;
         }
       }
       // input
