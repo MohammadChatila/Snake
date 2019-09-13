@@ -8,7 +8,7 @@
   </head>
   <body>
     <p id="demo"></p>
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <canvas id="canvas" width="1600" height="1600"></canvas>
     <script>
       var canvas, ctx;
       window.onload = function() {
@@ -21,7 +21,7 @@
         setInterval(draw, 1000 / x);
       };
       // game world
-      var gridSize = (tileSize = 20); // 20 x 20 = 400
+      var gridSize = (tileSize = 40); // 40 x 40 = 1600
       var nextX = (nextY = 0);
       // snake
       var defaultTailSize = 1;
